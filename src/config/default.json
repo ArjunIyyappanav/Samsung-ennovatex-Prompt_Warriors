@@ -1,0 +1,95 @@
+{
+  "monitoring_interval": 2.0,
+  "decision_interval": 10.0,
+  "model_path": "models/battery_agent.pkl",
+  "emergency_battery_threshold": 5.0,
+  "max_performance_impact": 0.7,
+  "learning_rate": 0.1,
+  "feedback_timeout": 300.0,
+  
+  "optimization_modes": {
+    "aggressive": {
+      "max_intensity": 0.9,
+      "min_confidence": 0.6,
+      "description": "Maximum battery savings with higher performance impact"
+    },
+    "balanced": {
+      "max_intensity": 0.6,
+      "min_confidence": 0.7,
+      "description": "Balanced approach between battery savings and performance"
+    },
+    "conservative": {
+      "max_intensity": 0.3,
+      "min_confidence": 0.8,
+      "description": "Minimal performance impact with modest battery savings"
+    }
+  },
+  
+  "target_applications": {
+    "video_player": {
+      "enabled": true,
+      "optimization_priority": "high",
+      "min_quality": 0.3,
+      "min_framerate": 15.0
+    },
+    "web_browser": {
+      "enabled": true,
+      "optimization_priority": "medium"
+    },
+    "game": {
+      "enabled": true,
+      "optimization_priority": "low",
+      "preserve_framerate": true
+    }
+  },
+  
+  "system_optimizations": {
+    "cpu_throttling": {
+      "enabled": true,
+      "max_throttle": 0.8,
+      "min_frequency_percent": 30.0
+    },
+    "display_control": {
+      "enabled": true,
+      "min_brightness": 10,
+      "max_reduction": 0.8
+    },
+    "network_limiting": {
+      "enabled": true,
+      "background_limit": true,
+      "min_bandwidth_mbps": 1.0
+    }
+  },
+  
+  "machine_learning": {
+    "model_type": "random_forest",
+    "n_estimators": 50,
+    "max_depth": 10,
+    "retrain_interval": 3600,
+    "min_samples_for_retrain": 50,
+    "feature_importance_threshold": 0.01
+  },
+  
+  "dashboard": {
+    "enabled": true,
+    "host": "localhost",
+    "port": 5000,
+    "update_interval": 2.0,
+    "max_history_points": 1000
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/battery_optimization.log",
+    "max_file_size": "10MB",
+    "backup_count": 5,
+    "colored_console": true
+  },
+  
+  "performance_monitoring": {
+    "enabled": true,
+    "metrics_retention_hours": 24,
+    "performance_alert_threshold": 0.8,
+    "battery_alert_threshold": 10.0
+  }
+}
